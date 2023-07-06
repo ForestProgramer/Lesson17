@@ -23,7 +23,14 @@ class MyPageViewController : UIPageViewController {
     var page3 : CatsImageController!
     //булівська змінна для перевірки наявності фільтра на картинці
     var isBlackAndWhite : Bool!
+    //ініціалізатор пейдж в'ю контроллера, в якому ми змінюємо транзишн стайл на .scroll для зміни анімації перегортання
+    override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    }
     
+    required init?(coder: NSCoder) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         //виклик функцій
@@ -141,9 +148,6 @@ extension MyPageViewController {
         let currentPageViewController = self
              guard  let currentViewController = self.viewControllers?.first as? CatsImageController else{return}
         currentPageViewController.isBlackAndWhite = currentViewController.isBlackAndWhite
-//        print("Next complited")
-//        print("Наступної сторінки параметр \(currentViewController.isBlackAndWhite)")
-//        print("PageViewController IsBlackAndWhite \(currentPageViewController.isBlackAndWhite)")
     }
     // функція перегортання контроллерів назад
     func goToPreviousPage(animated : Bool = true, completion: ((Bool)->Void)? = nil) {
@@ -154,9 +158,6 @@ extension MyPageViewController {
         let currentPageViewController = self
              guard  let currentViewController = self.viewControllers?.first as? CatsImageController else{return}
         currentPageViewController.isBlackAndWhite = currentViewController.isBlackAndWhite
-//        print("Previous complited")
-//        print("Попередньої сторінки параметр \(currentViewController.isBlackAndWhite)")
-//        print("PageViewController IsBlackAndWhite \(currentPageViewController.isBlackAndWhite)")
     }
     
 }

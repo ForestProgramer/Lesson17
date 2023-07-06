@@ -51,7 +51,6 @@ class ViewController: UIViewController {
     }
     // айбі екшн на копнку Black and White
     @IBAction func tappedBlackAndWhite(_ sender: Any) {
-//        print("Start \(isBlackAndWhite)")
         // опшинал байдінг для розгортання опціональної змінни
         guard let IsFiltered = isBlackAndWhite else{return}
         if IsFiltered {
@@ -64,7 +63,6 @@ class ViewController: UIViewController {
             currentViewController.imageView.image = originalImage
             currentViewController.isBlackAndWhite = false
             isBlackAndWhite = currentViewController.isBlackAndWhite
-//            print(currentViewController.isBlackAndWhite)
                 } else {
                     // Застосовуємо чорно-білий фільтр
                     guard let currentPageViewController = pageViewController,
@@ -75,7 +73,6 @@ class ViewController: UIViewController {
                     currentViewController.imageView.image = blackAndWhiteImage
                     currentViewController.isBlackAndWhite = true
                     isBlackAndWhite = currentViewController.isBlackAndWhite
-//                    print(currentViewController.isBlackAndWhite)
                 }
     }
 }
@@ -105,8 +102,14 @@ extension ViewController : SwipingPhotos{
     }
     func setFilter(){
         isBlackAndWhite = pageViewController!.isBlackAndWhite
-//        print(pageViewController!.isBlackAndWhite)
         
     }
 
 }
+
+//extension ViewController : UIPageViewControllerDelegate{
+//    func pageViewController(_ pageViewController: UIPageViewController, spineLocationFor orientation: UIInterfaceOrientation) -> UIPageViewController.SpineLocation {
+//        .min
+//    }
+//    
+//}

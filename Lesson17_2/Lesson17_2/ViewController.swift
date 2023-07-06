@@ -109,7 +109,7 @@ class ViewController: UIViewController {
     }
 //діставання зображення за допомогою url
     func fetchImage() {
-        let imageURL: URL = URL(string: "https://scontent.flwo4-2.fna.fbcdn.net/v/t39.30808-6/315070284_5333222196805900_2494402954887719442_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=KYuxB1OmNLYAX-rpDuP&_nc_ht=scontent.flwo4-2.fna&oh=00_AfAoObuS6kjeZaiKafR1_PRSI_CL6OxVBVwRe264DgCfSQ&oe=642E2269")!
+        let imageURL: URL = URL(string: "https://upload.wikimedia.org/wikipedia/uk/4/47/FC_Barcelona.png?20100206221457")!
      
         (URLSession(configuration: URLSessionConfiguration.default)).dataTask(with: imageURL, completionHandler: { (imageData, response, error) in
      

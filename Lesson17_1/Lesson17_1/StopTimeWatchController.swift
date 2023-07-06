@@ -142,7 +142,7 @@ class StopTimeWatchController: UIViewController {
             self.mins = 59
             self.secs = 59
         }else if hours == 0 && mins == 0 && secs == 0{
-            // якщо в нас все по нулям то сав'ю пропадає і кнопка рісет стає недоступна і напів прозора
+            // якщо в нас все по нулям то сабв'ю пропадає і кнопка рісет стає недоступна і напів прозора
             upperLabel.removeFromSuperview()
             pickerTimer.isHidden = false
             counter = 0
@@ -155,7 +155,24 @@ class StopTimeWatchController: UIViewController {
     
     // функція для обновлення лейблу таймера
     func updateLabelTimer(){
-        upperLabel.text = "\(hours):\(mins):\(secs)"
+        var stringTime = "\(hours):\(mins):\(secs)"
+        if hours < 10 {
+            stringTime.insert("0", at: stringTime.startIndex)
+        }
+        if mins < 10 {
+            if let index = stringTime.firstIndex(of: ":"){
+                stringTime.insert("0", at: stringTime.index(after: index))
+            }
+        }
+        if secs < 10 {
+            if let range = stringTime.range(of: ":", options: .backwards, range: nil, locale: nil) {
+                let index = range.upperBound
+                stringTime.insert(contentsOf: "0", at: index)
+                
+            }
+        }
+            upperLabel.text = stringTime
+       
     }
     
     // функція для обновлення вигляду кнопки
